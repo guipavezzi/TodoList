@@ -1,0 +1,28 @@
+  <h1>Tarefas Não Realizadas</h1>
+<table>
+  <thead>
+    <th></th>
+    <th>Nome da Tarefa</th>
+    <th>Dia da Entrega</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of listTasks">
+      <td *ngIf="task.isDone== false"><input type="checkbox" (change)="updateTask(task)"></td>
+      <td *ngIf="task.isDone== false">{{task.title}}</td>
+      <td *ngIf="task.isDone== false">{{task.completeDay | date: 'shortDate'}}</td>
+      <td *ngIf="task.isDone== false"><button class="update" routerLink="/tasks/atualizar/{{ task.id }}"><mat-icon>edit</mat-icon></button></td>
+      <td *ngIf="task.isDone== false" ><button
+        class="delete"
+        [swal]="{
+        title: 'ATENÇÃO !!!',
+        text: 'Deseja realmene excluir a tarefa: ' + task.title + '?',
+        showDenyButton: true,
+        denyButtonText: 'Não',
+        confirmButtonText: 'Sim, excluir', icon: 'warning'
+      }"(confirm)="deleteTask(task)"
+      ><mat-icon>delete</mat-icon></button></td>
+    </tr>
+  </tbody>
+</table>

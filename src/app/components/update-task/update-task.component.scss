@@ -1,0 +1,41 @@
+.formulario{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 1rem;
+}
+
+.form-field{
+  padding: 1rem;
+
+  &__label{
+    padding: 0.5rem;
+    font-size: 1.4rem;
+  }
+  &__input{
+    padding: 8px;
+    border-radius: 4px;
+    color: inherit;
+    border: 2px solid;
+    outline: none;
+  }
+}
+
+
+.button-wraper{
+  padding: 1rem;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .button{
+    font-size: 1.3rem;
+    border-radius: 1rem;
+    padding: 0.4rem;
+    background-color: #80B918;
+    color: black;
+    border: 1px solid black;
+  }
+}
+

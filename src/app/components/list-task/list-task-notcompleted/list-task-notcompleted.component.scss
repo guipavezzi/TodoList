@@ -1,0 +1,35 @@
+table{
+  border: 1px solid;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+tr{
+  border: none;
+  padding: 1rem;
+}
+
+th{
+  border: none;
+  padding: 0.625rem;
+
+}
+
+td{
+  padding: 0.5rem;
+  align-items: center
+}
+
+button{
+  padding: 2px;
+  border: none;
+  background: none;
+  border-radius: 0.5rem;
+}
+
+.delete{
+  background-color: #9d0208;
+}
+
+.update{
+  background-color: #fcbf49;
+}

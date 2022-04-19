@@ -1,0 +1,39 @@
+<section>
+  <h1>Cadastrar tarefa</h1>
+  <form class="formulario" (ngSubmit)="addTask()" [formGroup]="taskForm" #formDir="ngForm">
+    <div class="form-field">
+      <label class="form-field__label">Nome da Tarefa</label>
+      <input class="form-field__input"
+       name="title"
+      required type="text"
+      [(ngModel)]="task.title"
+      formControlName="title"
+      >
+      <div *ngIf="title?.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="title?.errors?.['required']">O Campo nome da tarefa é obrigatório</p>
+        <p *ngIf="title?.errors?.['maxlength']">O Campo tarefa tem que ter no maximo 20 caracteres</p>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label class="form-field__label">Data de Entrega</label>
+      <input
+      class="form-field__input"
+      name="isDone" type="date"
+      required
+      [(ngModel)]="task.completeDay"
+      formControlName="date"
+      >
+      <div *ngIf="date?.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="date?.errors?.['required']">O Campo data é obrigatório</p>
+      </div>
+    </div>
+
+    <div class="button-wraper">
+      <button class="button">
+        Cadastrar tarefa
+      </button>
+    </div>
+  </form>
+  <app-list-task></app-list-task>
+</section>
