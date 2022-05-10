@@ -8,16 +8,13 @@ import { Observable } from 'rxjs';
 })
 export class TaskService {
 
-  private listTask: any[];
-  private URL = "https://localhost:5001/task"
+  private URL = "http://localhost:5000/task"
 
 
   constructor(private HttpClient: HttpClient) {
-    this.listTask = [];
-   }
+  }
 
    all(): Observable<ITask[]>{
-     console.log(this.listTask)
      return this.HttpClient.get<ITask[]>(this.URL)
    }
 

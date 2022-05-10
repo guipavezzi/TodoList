@@ -17,17 +17,19 @@ export class ListTaskConcludedComponent implements OnInit {
   task: ITask = {
     title: '',
     completeDay: undefined,
-    isDone: false
   }
 
   load(){
-    location.reload()
+    setTimeout(() => {
+      location.reload()
+    }, 300);
+
   }
 
   ngOnInit(): void {
     this.service.all().subscribe((tasks: ITask[]) => {
       this.listTasks = tasks
-      return this.task.isDone == false
+      console.log(this.listTasks)
     })
   }
 

@@ -16,17 +16,19 @@ export class ListTaskNotcompletedComponent implements OnInit {
   task: ITask = {
     title: '',
     completeDay: undefined,
-    isDone: false
   }
 
   load(){
-    location.reload()
+    setTimeout(() => {
+      location.reload()
+    }, 300);
+
   }
 
   ngOnInit(): void {
-    this.service.all().subscribe((tasks: ITask[]) => {
-      this.listTasks = tasks
-      return this.task.isDone == false
+    this.service.all().subscribe((task: ITask[]) => {
+      this.listTasks = task
+      console.log(task);
     })
   }
 
@@ -36,9 +38,9 @@ export class ListTaskNotcompletedComponent implements OnInit {
   }
 
   updateTask(task: ITask){
-    this.task.isDone = !task.isDone
     this.task.title = task.title
     this.task.completeDay = task.completeDay
+    this.task.isDone = !task.isDone
     this.service.update(task.id, this.task).subscribe()
     this.load()
   }

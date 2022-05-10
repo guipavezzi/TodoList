@@ -1,28 +1,27 @@
-
-  <h1>Tarefas Realizadas</h1>
-  <table>
-    <thead>
-      <th></th>
-      <th>Nome da tarefa</th>
-      <th>Data de Entrega</th>
-      <th></th>
-      <th></th>
-    </thead>
-    <tr *ngFor="let task of listTasks">
-      <td *ngIf="task.isDone== true" ><input type="checkbox" [checked]="task.isDone == true" (change)="updateTask(task)"></td>
-      <td *ngIf="task.isDone== true">{{task.title}}</td>
-      <td *ngIf="task.isDone== true">{{task.completeDay | date: 'shortDate'}}</td>
-      <td *ngIf="task.isDone== true"><button class="update" routerLink="/tasks/atualizar/{{ task.id }}"><mat-icon>edit</mat-icon></button></td>
-      <td
-       *ngIf="task.isDone== true"><button
-       class="material-icons-outlined delete"
-       [swal]="{
-        title: 'ATENÇÃO !!!',
-        text: 'Deseja realmene excluir a tarefa: ' + task.title + '?',
-        showDenyButton: true,
-        denyButtonText: 'Não',
-        confirmButtonText: 'Sim, excluir', icon: 'warning'
-      }"(confirm)="deleteTask(task)"
-      ><mat-icon>delete</mat-icon></button></td>
-    </tr>
-  </table>
+<h1>Tarefas Realizadas</h1>
+<table>
+  <thead>
+    <th></th>
+    <th>Nome da tarefa</th>
+    <th>Data de Entrega</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tr *ngFor="let task of listTasks">
+    <td *ngIf="task.isDone== true" ><input type="checkbox" [checked]="task.isDone == true" (change)="updateTask(task)"></td>
+    <td *ngIf="task.isDone== true">{{task.title}}</td>
+    <td *ngIf="task.isDone== true">{{task.completeDay | date: 'shortDate'}}</td>
+    <td *ngIf="task.isDone== true"><button class="update" routerLink="/tasks/atualizar/{{ task.id }}"><mat-icon>edit</mat-icon></button></td>
+    <td
+     *ngIf="task.isDone== true"><button
+     class="material-icons-outlined delete"
+     [swal]="{
+      title: 'ATENÇÃO !!!',
+      text: 'Deseja realmene excluir a tarefa: ' + task.title + '?',
+      showDenyButton: true,
+      denyButtonText: 'Não',
+      confirmButtonText: 'Sim, excluir', icon: 'warning'
+    }"(confirm)="deleteTask(task)"
+    ><mat-icon>delete</mat-icon></button></td>
+  </tr>
+</table>
